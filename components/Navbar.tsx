@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 import * as Select from "@radix-ui/react-select";
 import Logo from "../public/images/assets/logo.png";
+import LogoRTL from "../public/images/assets/logo-rtl.png";
 import Image from "next/image";
 
 function Navbar() {
@@ -89,7 +90,8 @@ function Navbar() {
 						<div className="flex items-center justify-between">
 							<div>
 								<Image
-									src={Logo}
+									key={locale === "ar" ? "rtl" : "ltr"}
+									src={locale === "ar" ? LogoRTL : Logo}
 									width={657 / 4}
 									height={212 / 4}
 									alt={"Phu Boutique Logo"}
