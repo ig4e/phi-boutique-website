@@ -10,7 +10,7 @@ function Navbar() {
 
 	return (
 		<>
-			<nav className="fixed top-0 inset-x-0 bg-primary py-2 z-40">
+			<nav className="fixed top-0 inset-x-0 bg-primary py-2 z-40 max-w-lg mx-auto">
 				<div className="flex flex-col gap-2 container mx-auto">
 					<div className="flex items-center justify-between">
 						<Select.Root

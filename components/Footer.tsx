@@ -8,7 +8,7 @@ function Footer() {
 
 	return (
 		<>
-			<footer className="fixed inset-x-0 bottom-0 bg-white py-4 container mx-auto">
+			<footer className="fixed inset-x-0 bottom-0 bg-white py-4 container mx-auto max-w-lg mx-auto">
 				<div className="bg-primary py-2 rounded text-center">
 					<h2 className="font-medium">
 						{locales.all.pricesIncludesTaxes[locale]}

@@ -19,7 +19,7 @@ const CategoryList: NextPage<CategoryPageProps> = ({ category, products }) => {
 
 	return (
 		<div className="">
-			<div className="bg-primary-100 fixed  inset-x-0 z-50">
+			<div className="bg-primary-100 fixed  inset-x-0 z-50 max-w-lg mx-auto">
 				<div className="flex items-center gap-2 container mx-auto py-2">
 					<Link
 						href={"/"}
