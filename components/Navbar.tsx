@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Bars3Icon, HomeIcon } from "@heroicons/react/24/outline";
 import { useRouter } from "next/router";
 import Link from "next/link";
@@ -9,6 +9,13 @@ import Image from "next/image";
 function Navbar() {
 	const router = useRouter();
 	const locale: "en" | "ar" = (router.locale as any) || "en";
+	const [currentLocale, setLocale] = useState<"en" | "ar">(locale);
+
+	useEffect(() => {
+		router.push(router.pathname, router.asPath, {
+			locale: currentLocale,
+		});
+	}, [currentLocale]);
 
 	return (
 		<>
@@ -18,9 +25,7 @@ function Navbar() {
 						<Select.Root
 							defaultValue={locale}
 							onValueChange={(newLocale) => {
-								router.push(router.pathname, router.asPath, {
-									locale: newLocale,
-								});
+								setLocale(newLocale as any);
 							}}
 						>
 							<Select.Trigger>
@@ -83,7 +88,12 @@ function Navbar() {
 					<Link href={"/"} locale={locale}>
 						<div className="flex items-center justify-between">
 							<div>
-								<Image src={Logo} width={657 / 4} height={212 / 4} alt={"Phu Boutique Logo"}></Image>
+								<Image
+									src={Logo}
+									width={657 / 4}
+									height={212 / 4}
+									alt={"Phu Boutique Logo"}
+								></Image>
 							</div>
 							<Bars3Icon className="w-6 h-6 stroke-2"></Bars3Icon>
 						</div>
