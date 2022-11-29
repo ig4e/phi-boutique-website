@@ -70,7 +70,7 @@ export default function Home() {
 				{trendingProducts.map((product) => {
 					return (
 						<SwiperSlide key={product.title[locale]}>
-							<div className="w-full">
+							<Link href={`/category/${product.categories[0]}/${encodeURIComponent(product.title.en)}`} locale={locale} className="w-full">
 								<Image
 									src={product.pictures[0]}
 									layout={"fill"}
@@ -90,7 +90,7 @@ export default function Home() {
 										</span>
 									</div>
 								</div>
-							</div>
+							</Link>
 						</SwiperSlide>
 					);
 				})}
