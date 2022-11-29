@@ -26,17 +26,16 @@ const Product: NextPage<ProductPageProps> = ({ category, product }) => {
 				<title>
 					Phi Boutique - فاى بوتيك |{" "}
 					{locale === "ar"
-						? `صفحة ${category.name[locale]} / ${product.title[locale]}`
-						: `${category.name[locale]} / ${product.title[locale]} Page`}
+						? `صفحة ${product.title[locale]}`
+						: `${product.title[locale]} Page`}
 				</title>
 
 				<meta
 					property="og:title"
-					content={`Phi Boutique - فاى بوتيك | 
-					${
+					content={`Phi Boutique - فاى بوتيك | ${
 						locale === "ar"
-							? `صفحة ${category.name[locale]} / ${product.title[locale]}`
-							: `${category.name[locale]} / ${product.title[locale]} Page`
+							? `صفحة ${product.title[locale]}`
+							: `${product.title[locale]} Page`
 					}`}
 					key="title"
 				/>
