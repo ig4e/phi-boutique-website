@@ -7,6 +7,7 @@ import * as locales from "../../../public/locales/all";
 import { Category, Product } from "../../../typings/interfaces";
 import Link from "next/link";
 import Image from "next/image";
+import Head from "next/head";
 
 interface CategoryPageProps {
 	category: Category;
@@ -19,6 +20,25 @@ const CategoryList: NextPage<CategoryPageProps> = ({ category, products }) => {
 
 	return (
 		<div className="">
+			<Head>
+				<title>
+					Phi Boutique - فاى بوتيك |{" "}
+					{locale === "ar"
+						? `صفحة ${category.name[locale]}`
+						: `${category.name[locale]} Page`}
+				</title>
+
+				<meta
+					property="og:title"
+					content={`Phi Boutique - فاى بوتيك |
+					${
+						locale === "ar"
+							? `صفحة ${category.name[locale]}`
+							: `${category.name[locale]} Page`
+					}`}
+					key="title"
+				/>
+			</Head>
 			<div className="bg-primary-100 fixed  inset-x-0 z-50 max-w-lg mx-auto">
 				<div className="flex items-center gap-2 container mx-auto py-2">
 					<Link
@@ -44,7 +64,9 @@ const CategoryList: NextPage<CategoryPageProps> = ({ category, products }) => {
 					{products.map((product) => {
 						return (
 							<Link
-								href={`/category/${category.id}/${encodeURIComponent(product.title.en)}`}
+								href={`/category/${
+									category.id
+								}/${encodeURIComponent(product.title.en)}`}
 								key={product.title.en}
 								className="grid grid-flow-row grid-cols-6 h-full gap-2.5"
 							>

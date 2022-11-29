@@ -3,6 +3,8 @@ import { Bars3Icon, HomeIcon } from "@heroicons/react/24/outline";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import * as Select from "@radix-ui/react-select";
+import Logo from "../public/images/assets/logo.png";
+import Image from "next/image";
 
 function Navbar() {
 	const router = useRouter();
@@ -80,13 +82,15 @@ function Navbar() {
 					</div>
 					<Link href={"/"} locale={locale}>
 						<div className="flex items-center justify-between">
-							<span className="font-bold">LOGO HERE</span>
+							<div>
+								<Image src={Logo} width={657 / 4} height={212 / 4} alt={"Phu Boutique Logo"}></Image>
+							</div>
 							<Bars3Icon className="w-6 h-6 stroke-2"></Bars3Icon>
 						</div>
 					</Link>
 				</div>
 			</nav>
-			<div className="h-[72px]"></div>
+			<div className="h-[101.25px]"></div>
 		</>
 	);
 }

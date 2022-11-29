@@ -9,6 +9,7 @@ import * as locales from "../../../public/locales/all";
 import Link from "next/link";
 import { ArrowLeftIcon } from "@heroicons/react/24/outline";
 import { Navigation, Thumbs } from "swiper";
+import Head from "next/head";
 
 interface ProductPageProps {
 	category: Category;
@@ -21,6 +22,36 @@ const Product: NextPage<ProductPageProps> = ({ category, product }) => {
 
 	return (
 		<div>
+			<Head>
+				<title>
+					Phi Boutique - فاى بوتيك |{" "}
+					{locale === "ar"
+						? `صفحة ${category.name[locale]} / ${product.title[locale]}`
+						: `${category.name[locale]} / ${product.title[locale]} Page`}
+				</title>
+
+				<meta
+					property="og:title"
+					content={`Phi Boutique - فاى بوتيك | 
+					${
+						locale === "ar"
+							? `صفحة ${category.name[locale]} / ${product.title[locale]}`
+							: `${category.name[locale]} / ${product.title[locale]} Page`
+					}`}
+					key="title"
+				/>
+
+				<meta
+					name="description"
+					content={`Phi Boutique - فاى بوتيك | 
+					${
+						locale === "ar"
+							? `صفحة ${category.name[locale]} / ${product.title[locale]}`
+							: `${category.name[locale]} / ${product.title[locale]} Page`
+					}\n${product.description[locale]}`}
+				/>
+			</Head>
+
 			<div className="bg-primary-100 fixed  inset-x-0 z-50 max-w-lg mx-auto">
 				<div className="flex items-center gap-2 container mx-auto py-2">
 					<Link

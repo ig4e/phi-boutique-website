@@ -7,6 +7,7 @@ import { useRouter } from "next/router";
 import * as locales from "../public/locales/all";
 import { useMemo } from "react";
 import { Navigation, Thumbs } from "swiper";
+import Head from "next/head";
 
 export default function Home() {
 	const router = useRouter();
@@ -14,6 +15,20 @@ export default function Home() {
 
 	return (
 		<div className="">
+			<Head>
+				<title>
+					Phi Boutique - فاى بوتيك |{" "}
+					{locale === "ar" ? "الصفحة الرئيسية" : "Main Page"}
+				</title>
+				<meta
+					property="og:title"
+					content={`Phi Boutique - فاى بوتيك | ${
+						locale === "ar" ? "الصفحة الرئيسية" : "Main Page"
+					}`}
+					key="title"
+				/>
+			</Head>
+
 			<Swiper
 				className="w-full h-[25vh] bg-primary"
 				slidesPerView={1}
