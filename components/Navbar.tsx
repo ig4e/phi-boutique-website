@@ -11,6 +11,7 @@ function Navbar() {
 	const router = useRouter();
 	const locale: "en" | "ar" = (router.locale as any) || "en";
 	const [currentLocale, setLocale] = useState<"en" | "ar">();
+	const [selectMenuOpen, setSelectMenuOpen] = useState<boolean>(false);
 
 	useEffect(() => {
 		router.push(router.pathname, router.asPath, {
@@ -20,10 +21,19 @@ function Navbar() {
 
 	return (
 		<>
-			<nav className="fixed top-0 inset-x-0 bg-primary py-2 z-40 max-w-lg mx-auto">
+			<nav className="fixed top-0 inset-x-0 bg-primary py-2 z-30 max-w-lg mx-auto">
 				<div className="flex flex-col gap-2 container mx-auto">
 					<div className="flex items-center justify-between">
 						<Select.Root
+							open={selectMenuOpen}
+							onOpenChange={(open) => {
+								if (!open) {
+									setTimeout(
+										() => setSelectMenuOpen(open),
+										100,
+									);
+								} else setSelectMenuOpen(open);
+							}}
 							defaultValue={locale}
 							onValueChange={(newLocale) => {
 								setLocale(newLocale as any);
@@ -37,25 +47,28 @@ function Navbar() {
 								<Select.Icon />
 							</Select.Trigger>
 
-							<Select.Portal>
-								<Select.Content className="bg-white z-50 rounded-md p-2.5 border">
-									<Select.ScrollUpButton />
-									<Select.Viewport className="space-y-2">
-										{router.locales!.map((locle) => (
-											<Select.Item
-												key={locle}
-												value={locle}
-												className="text-center px-6 SelectItem rounded text-xl"
-											>
-												<Select.ItemText>
-													{locle.toUpperCase()}
-												</Select.ItemText>
-												<Select.ItemIndicator />
-											</Select.Item>
-										))}
-									</Select.Viewport>
-									<Select.ScrollDownButton />
-								</Select.Content>
+							<Select.Portal className="select-none">
+								<>
+									<Select.Content className="bg-white z-50 rounded-md p-2.5 border SelectContent">
+										<Select.ScrollUpButton />
+										<Select.Viewport className="space-y-2 z-[91]">
+											{router.locales!.map((locle) => (
+												<Select.Item
+													key={locle}
+													value={locle}
+													className="text-center px-6 SelectItem rounded text-xl"
+												>
+													<Select.ItemText>
+														{locle.toUpperCase()}
+													</Select.ItemText>
+													<Select.ItemIndicator />
+												</Select.Item>
+											))}
+										</Select.Viewport>
+
+										<Select.ScrollDownButton />
+									</Select.Content>
+								</>
 							</Select.Portal>
 						</Select.Root>
 
@@ -86,20 +99,29 @@ function Navbar() {
 							</svg>
 						</div>
 					</div>
-					<Link href={"/"} locale={locale}>
-						<div className="flex items-center justify-between">
-							<div>
-								<Image
-									key={locale === "ar" ? "rtl" : "ltr"}
-									src={locale === "ar" ? LogoRTL : Logo}
-									width={657 / 4}
-									height={212 / 4}
-									alt={"Phu Boutique Logo"}
-								></Image>
+
+					<div
+						className={` ${
+							selectMenuOpen ? "pointer-events-none" : ""
+						}`}
+					>
+						<Link href={"/"} locale={locale}>
+							<div
+								className={`flex items-center justify-between`}
+							>
+								<div className="h-[53.03px]">
+									<Image
+										key={locale === "ar" ? "rtl" : "ltr"}
+										src={locale === "ar" ? LogoRTL : Logo}
+										width={657 / 4}
+										height={212 / 4}
+										alt={"Phu Boutique Logo"}
+									></Image>
+								</div>
+								<Bars3Icon className="w-6 h-6 stroke-2"></Bars3Icon>
 							</div>
-							<Bars3Icon className="w-6 h-6 stroke-2"></Bars3Icon>
-						</div>
-					</Link>
+						</Link>
+					</div>
 				</div>
 			</nav>
 			<div className="h-[101.25px]"></div>

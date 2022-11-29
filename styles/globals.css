@@ -21,8 +21,12 @@ body {
 		display: flex;
 		align-items: center;
 		position: relative;
-		user-select: none;
+		user-select: none !important;
 		@apply text-netural;
+	}
+
+	.SelectContent {
+		user-select: none !important;
 	}
 
 	.SelectItem[data-highlighted],
