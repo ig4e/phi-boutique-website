@@ -23,6 +23,9 @@ const Product: NextPage<ProductPageProps> = ({ category, product }) => {
 	return (
 		<div>
 			<Head>
+
+				
+
 				<title>
 					Phi Boutique - فاى بوتيك |{" "}
 					{locale === "ar"
@@ -43,13 +46,25 @@ const Product: NextPage<ProductPageProps> = ({ category, product }) => {
 
 				<meta
 					name="description"
-					content={`Phi Boutique - فاى بوتيك | 
-					${
+					content={`Phi Boutique - فاى بوتيك | ${
 						locale === "ar"
 							? `صفحة ${category.name[locale]} / ${product.title[locale]}`
 							: `${category.name[locale]} / ${product.title[locale]} Page`
 					}\n${product.description[locale]}`}
 				/>
+
+				<meta
+					name="og:description"
+					content={`Phi Boutique - فاى بوتيك | ${
+						locale === "ar"
+							? `صفحة ${category.name[locale]} / ${product.title[locale]}`
+							: `${category.name[locale]} / ${product.title[locale]} Page`
+					}\n${product.description[locale]}`}
+				/>
+
+				<meta property="og:site_name" content="Phi Boutique"></meta>
+				<meta property="og:type" content="website" />
+
 			</Head>
 
 			<div className="bg-primary-100 fixed  inset-x-0 z-50 max-w-lg mx-auto">

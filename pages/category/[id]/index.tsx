@@ -30,14 +30,14 @@ const CategoryList: NextPage<CategoryPageProps> = ({ category, products }) => {
 
 				<meta
 					property="og:title"
-					content={`Phi Boutique - فاى بوتيك |
-					${
+					content={`Phi Boutique - فاى بوتيك | ${
 						locale === "ar"
 							? `صفحة ${category.name[locale]}`
 							: `${category.name[locale]} Page`
 					}`}
 					key="title"
 				/>
+				
 			</Head>
 			<div className="bg-primary-100 fixed  inset-x-0 z-50 max-w-lg mx-auto">
 				<div className="flex items-center gap-2 container mx-auto py-2">
