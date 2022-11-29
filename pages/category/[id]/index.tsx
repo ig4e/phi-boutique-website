@@ -37,7 +37,11 @@ const CategoryList: NextPage<CategoryPageProps> = ({ category, products }) => {
 					}`}
 					key="title"
 				/>
-				
+
+				<meta property="og:image" content={"/images/assets/logo.png"} />
+				<meta property="og:site_name" content="Phi Boutique"></meta>
+				<meta property="og:type" content="website" />
+
 			</Head>
 			<div className="bg-primary-100 fixed  inset-x-0 z-50 max-w-lg mx-auto">
 				<div className="flex items-center gap-2 container mx-auto py-2">

@@ -23,9 +23,6 @@ const Product: NextPage<ProductPageProps> = ({ category, product }) => {
 	return (
 		<div>
 			<Head>
-
-				
-
 				<title>
 					Phi Boutique - فاى بوتيك |{" "}
 					{locale === "ar"
@@ -62,9 +59,10 @@ const Product: NextPage<ProductPageProps> = ({ category, product }) => {
 					}\n${product.description[locale]}`}
 				/>
 
+				<meta property="og:image" content={product.pictures[0]} />
 				<meta property="og:site_name" content="Phi Boutique"></meta>
 				<meta property="og:type" content="website" />
-
+				
 			</Head>
 
 			<div className="bg-primary-100 fixed  inset-x-0 z-50 max-w-lg mx-auto">

@@ -27,6 +27,28 @@ export default function Home() {
 					}`}
 					key="title"
 				/>
+
+				<meta
+					name="description"
+					content={`Phi Boutique - فاى بوتيك | ${
+						locale === "ar"
+							? `أكثر من 250 طبق محضر طازج يومياً`
+							: `MORE THAN 250 DISHES MADE FRESH EVERY DAY`
+					}`}
+				/>
+
+				<meta
+					name="og:description"
+					content={`Phi Boutique - فاى بوتيك | ${
+						locale === "ar"
+							? `أكثر من 250 طبق محضر طازج يومياً`
+							: `MORE THAN 250 DISHES MADE FRESH EVERY DAY`
+					}`}
+				/>
+
+				<meta property="og:image" content={"/images/assets/logo.png"} />
+				<meta property="og:site_name" content="Phi Boutique"></meta>
+				<meta property="og:type" content="website" />
 			</Head>
 
 			<Swiper
