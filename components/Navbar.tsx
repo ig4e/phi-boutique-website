@@ -9,7 +9,7 @@ import Image from "next/image";
 function Navbar() {
 	const router = useRouter();
 	const locale: "en" | "ar" = (router.locale as any) || "en";
-	const [currentLocale, setLocale] = useState<"en" | "ar">(locale);
+	const [currentLocale, setLocale] = useState<"en" | "ar">();
 
 	useEffect(() => {
 		router.push(router.pathname, router.asPath, {
@@ -37,14 +37,14 @@ function Navbar() {
 							</Select.Trigger>
 
 							<Select.Portal>
-								<Select.Content className="bg-white z-50 rounded-md p-2 border">
+								<Select.Content className="bg-white z-50 rounded-md p-2.5 border">
 									<Select.ScrollUpButton />
 									<Select.Viewport className="space-y-2">
 										{router.locales!.map((locle) => (
 											<Select.Item
 												key={locle}
 												value={locle}
-												className="text-center px-4 SelectItem rounded text-lg"
+												className="text-center px-6 SelectItem rounded text-xl"
 											>
 												<Select.ItemText>
 													{locle.toUpperCase()}
