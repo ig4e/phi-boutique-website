@@ -62,7 +62,6 @@ const Product: NextPage<ProductPageProps> = ({ category, product }) => {
 				<meta property="og:image" content={product.pictures[0]} />
 				<meta property="og:site_name" content="Phi Boutique"></meta>
 				<meta property="og:type" content="website" />
-				
 			</Head>
 
 			<div className="bg-primary-100 fixed  inset-x-0 z-50 max-w-lg mx-auto">

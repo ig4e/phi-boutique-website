@@ -8,4 +8,3 @@ export const all = {
 		en: "All Prices Includes Tax",
 	},
 };
- 
