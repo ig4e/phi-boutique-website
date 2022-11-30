@@ -73,9 +73,7 @@ function Navbar() {
 						</Select.Root>
 
 						<div className="flex items-center gap-4">
-							<a
-							href="https://www.tiktok.com/@phi.boutique1?_t=8XlCAwOWkAT&_r=1"
-							>
+							<a href="https://www.tiktok.com/@phi.boutique1?_t=8XlCAwOWkAT&_r=1">
 								<svg
 									className="h-6 w-6"
 									xmlns="http://www.w3.org/2000/svg"
@@ -91,8 +89,7 @@ function Navbar() {
 								</svg>
 							</a>
 
-							<a 								href="https://instagram.com/phi.boutique1?igshid=YWJhMjlhZTc="
->
+							<a href="https://instagram.com/phi.boutique1?igshid=YWJhMjlhZTc=">
 								<svg
 									className="h-6 w-6"
 									xmlns="http://www.w3.org/2000/svg"

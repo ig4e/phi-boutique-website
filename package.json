@@ -6,6 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "cstart": "NODE_ENV=production node server.js",
+    "wcstart": "node server.js",
     "lint": "next lint"
   },
   "dependencies": {
