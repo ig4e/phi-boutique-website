@@ -10,7 +10,7 @@ export const trendingProducts = [
 		categories: ["appetizersAndSalads"],
 	},
 	{
-		pictures: ["Mac&cheese.png"],
+		pictures: ["Mac&Cheese.png"],
 		title: { en: "Mac & cheese", ar: "ماك & تشيز" },
 		price: 32,
 		description: {
@@ -20,7 +20,7 @@ export const trendingProducts = [
 		categories: ["appetizersAndSalads"],
 	},
 	{
-		pictures: ["Phipatata.png"],
+		pictures: ["PhiPatata.png"],
 		title: { en: "Phi patata", ar: "فاي بتاتا" },
 		price: 38,
 		description: {
@@ -30,7 +30,7 @@ export const trendingProducts = [
 		categories: ["appetizersAndSalads"],
 	},
 	{
-		pictures: ["Triohummus.png"],
+		pictures: ["TrioHummus.png"],
 		title: { en: "Trio hummus(classic,cherry, avocado)", ar: "تريو حمص" },
 		price: 32,
 		description: {
@@ -40,7 +40,7 @@ export const trendingProducts = [
 		categories: ["appetizersAndSalads"],
 	},
 	{
-		pictures: ["Aranchiniballs.png"],
+		pictures: ["AranchiniBalls.png"],
 		title: { en: "Aranchini balls", ar: "أرانشيني بولز" },
 		price: 43,
 		description: {
@@ -60,7 +60,7 @@ export const trendingProducts = [
 		categories: ["appetizersAndSalads"],
 	},
 	{
-		pictures: ["Redshrimp.png"],
+		pictures: ["RedShrimp.png"],
 		title: { en: "Red shrimp", ar: "ريد شريمب" },
 		price: 37,
 		description: {
@@ -86,7 +86,7 @@ export const products = [
 		categories: ["appetizersAndSalads"],
 	},
 	{
-		pictures: ["Mac&cheese.png"],
+		pictures: ["Mac&Cheese.png"],
 		title: { en: "Mac & cheese", ar: "ماك & تشيز" },
 		price: 32,
 		description: {
@@ -96,7 +96,7 @@ export const products = [
 		categories: ["appetizersAndSalads"],
 	},
 	{
-		pictures: ["Phipatata.png"],
+		pictures: ["PhiPatata.png"],
 		title: { en: "Phi patata", ar: "فاي بتاتا" },
 		price: 38,
 		description: {
@@ -106,7 +106,7 @@ export const products = [
 		categories: ["appetizersAndSalads"],
 	},
 	{
-		pictures: ["Triohummus.png"],
+		pictures: ["TrioHummus.png"],
 		title: { en: "Trio hummus(classic,cherry, avocado)", ar: "تريو حمص" },
 		price: 32,
 		description: {
@@ -116,7 +116,7 @@ export const products = [
 		categories: ["appetizersAndSalads"],
 	},
 	{
-		pictures: ["Aranchiniballs.png"],
+		pictures: ["AranchiniBalls.png"],
 		title: { en: "Aranchini balls", ar: "أرانشيني بولز" },
 		price: 43,
 		description: {
@@ -136,7 +136,7 @@ export const products = [
 		categories: ["appetizersAndSalads"],
 	},
 	{
-		pictures: ["Redshrimp.png"],
+		pictures: ["RedShrimp.png"],
 		title: { en: "Red shrimp", ar: "ريد شريمب" },
 		price: 37,
 		description: {
@@ -147,7 +147,7 @@ export const products = [
 	},
 	//////////// burger and slider
 	{
-		pictures: ["Crispychickenslider.png"],
+		pictures: ["CrispyChickenSlider.png"],
 		title: { en: "Crispy chicken slider", ar: "سلايدر الدجاج" },
 		price: 29,
 		description: {
@@ -157,7 +157,7 @@ export const products = [
 		categories: ["burgerAndSlider"],
 	},
 	{
-		pictures: ["PhiBeefburger.png"],
+		pictures: ["PhiBeefBurger.png"],
 		title: { en: "Phi Beef burger", ar: "فاي برجر" },
 		price: 47,
 		description: {
@@ -177,7 +177,7 @@ export const products = [
 		categories: ["burgerAndSlider"],
 	},
 	{
-		pictures: ["Classicburger.png"],
+		pictures: ["ClassicBurger.png"],
 		title: { en: "Classic burger", ar: "كلاسيك برجر" },
 		price: 43,
 		description: {
@@ -187,7 +187,7 @@ export const products = [
 		categories: ["burgerAndSlider"],
 	},
 	{
-		pictures: ["Pulledbeefslider.png"],
+		pictures: ["PulledBeefSlider.png"],
 		title: { en: "Pulled beefslider", ar: "سلايدر لحم" },
 		price: 33,
 		description: {
@@ -198,7 +198,7 @@ export const products = [
 	},
 	//// pizza
 	{
-		pictures: ["Pizzamargarita.png"],
+		pictures: ["PizzaMargarita.png"],
 		title: { en: "Pizza margarita", ar: "مارغريتا بيتزا" },
 		price: 33,
 		description: {
@@ -208,7 +208,7 @@ export const products = [
 		categories: ["pizza"],
 	},
 	{
-		pictures: ["Chickenspicy.png"],
+		pictures: ["ChickenSpicy.png"],
 		title: { en: "Chicken spicy", ar: "بيتزا الدجاج" },
 		price: 39,
 		description: {
@@ -218,7 +218,7 @@ export const products = [
 		categories: ["pizza"],
 	},
 	{
-		pictures: ["Phaipizza.png"],
+		pictures: ["PhaiPizza.png"],
 		title: { en: "Phai pizza", ar: "فاي بيتزا" },
 		price: 47,
 		description: {
@@ -228,7 +228,7 @@ export const products = [
 		categories: ["pizza"],
 	},
 	{
-		pictures: ["Zatarhaloumipie.png"],
+		pictures: ["ZatarHaloumiPie.png"],
 		title: { en: "Zatar haloumi pie", ar: "زعتر مع جبنة حلوم" },
 		price: 31,
 		description: {
@@ -250,8 +250,8 @@ export const products = [
 		categories: ["pasta"],
 	},
 	{
-		pictures: ["wildRisotto.png"],
-		title: { en: "wild Risotto", ar: "زعتر مع جبنة حلوم" },
+		pictures: ["WildRisotto.png"],
+		title: { en: "Wild Risotto", ar: "زعتر مع جبنة حلوم" },
 		price: 55,
 		description: {
 			en: "italian abrborio rice,cooked with wild mushrooms and truffle",
@@ -302,7 +302,7 @@ export const products = [
 	},
 	/// tagine
 	{
-		pictures: ["ChickenStraganoff.png"],
+		pictures: ["ChickenStraganOff.png"],
 		title: { en: "Chicken straganoff", ar: "تشيكن استراغنوف" },
 		price: 65,
 		description: {
