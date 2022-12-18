@@ -6,18 +6,16 @@ import * as Select from "@radix-ui/react-select";
 import Logo from "../public/images/assets/logo.png";
 import LogoRTL from "../public/images/assets/logo-rtl.png";
 import Image from "next/image";
+import { getLocalizedUrl } from "../utils/getLocalizedUrl";
 
-function Navbar() {
-	const router = useRouter();
-	const locale: "en" | "ar" = (router.locale as any) || "en";
-	const [currentLocale, setLocale] = useState<"en" | "ar">();
+function Navbar({
+	locale,
+	setLocale,
+}: {
+	locale: "ar" | "en";
+	setLocale: any;
+}) {
 	const [selectMenuOpen, setSelectMenuOpen] = useState<boolean>(false);
-
-	useEffect(() => {
-		router.push(router.pathname, router.asPath, {
-			locale: currentLocale,
-		});
-	}, [currentLocale]);
 
 	return (
 		<>
@@ -52,7 +50,7 @@ function Navbar() {
 									<Select.Content className="bg-white z-50 rounded-md p-2.5 border SelectContent">
 										<Select.ScrollUpButton />
 										<Select.Viewport className="space-y-2 z-[91]">
-											{router.locales!.map((locle) => (
+											{["ar", "en"].map((locle) => (
 												<Select.Item
 													key={locle}
 													value={locle}
@@ -110,7 +108,7 @@ function Navbar() {
 							selectMenuOpen ? "pointer-events-none" : ""
 						}`}
 					>
-						<Link href={"/"} locale={locale}>
+						<Link href={`/${locale}`}>
 							<div
 								className={`flex items-center justify-between`}
 							>

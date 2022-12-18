@@ -1,10 +1,10 @@
 import { ArrowLeftIcon, ArrowRightIcon } from "@heroicons/react/24/outline";
 import { GetServerSideProps, NextPage } from "next";
 import React from "react";
-import { categories, products } from "../../../public/config";
+import { categories, products } from "../../../../public/config";
 import { useRouter } from "next/router";
-import * as locales from "../../../public/locales/all";
-import { Category, Product } from "../../../typings/interfaces";
+import * as locales from "../../../../public/locales/all";
+import { Category, Product } from "../../../../typings/interfaces";
 import Link from "next/link";
 import Image from "next/image";
 import Head from "next/head";
@@ -12,12 +12,14 @@ import Head from "next/head";
 interface CategoryPageProps {
 	category: Category;
 	products: Product[];
+	locale: "en" | "ar";
 }
 
-const CategoryList: NextPage<CategoryPageProps> = ({ category, products }) => {
-	const router = useRouter();
-	const locale: "en" | "ar" = (router.locale as any) || "en";
-
+const CategoryList: NextPage<CategoryPageProps> = ({
+	category,
+	products,
+	locale,
+}) => {
 	return (
 		<div className="">
 			<Head>
@@ -45,8 +47,7 @@ const CategoryList: NextPage<CategoryPageProps> = ({ category, products }) => {
 			<div className="bg-primary-100 fixed  inset-x-0 z-50 max-w-lg mx-auto">
 				<div className="flex items-center gap-2 container mx-auto py-2">
 					<Link
-						href={"/"}
-						locale={locale}
+						href={`/${locale}/`}
 						className="p-2 bg-primary rounded-md"
 					>
 						<ArrowLeftIcon
@@ -67,7 +68,7 @@ const CategoryList: NextPage<CategoryPageProps> = ({ category, products }) => {
 					{products.map((product) => {
 						return (
 							<Link
-								href={`/category/${
+								href={`/${locale}/category/${
 									category.id
 								}/${encodeURIComponent(product.title.en)}`}
 								key={product.title.en}

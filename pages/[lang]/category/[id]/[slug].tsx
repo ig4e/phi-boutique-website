@@ -3,9 +3,9 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { categories, products } from "../../../public/config";
-import { Category, Product } from "../../../typings/interfaces";
-import * as locales from "../../../public/locales/all";
+import { categories, products } from "../../../../public/config";
+import { Category, Product } from "../../../../typings/interfaces";
+import * as locales from "../../../../public/locales/all";
 import Link from "next/link";
 import { ArrowLeftIcon } from "@heroicons/react/24/outline";
 import { Navigation, Thumbs } from "swiper";
@@ -14,12 +14,10 @@ import Head from "next/head";
 interface ProductPageProps {
 	category: Category;
 	product: Product;
+	locale: "ar" | "en";
 }
 
-const Product: NextPage<ProductPageProps> = ({ category, product }) => {
-	const router = useRouter();
-	const locale: "en" | "ar" = (router.locale as any) || "en";
-
+const Product: NextPage<ProductPageProps> = ({ category, product, locale }) => {
 	return (
 		<div>
 			<Head>
@@ -66,7 +64,7 @@ const Product: NextPage<ProductPageProps> = ({ category, product }) => {
 			<div className="bg-primary-100 fixed  inset-x-0 z-50 max-w-lg mx-auto">
 				<div className="flex items-center gap-2 container mx-auto py-2">
 					<Link
-						href={`/category/${category.id}`}
+						href={`/${locale}/category/${category.id}`}
 						locale={locale}
 						className="p-2 bg-primary rounded-md"
 					>

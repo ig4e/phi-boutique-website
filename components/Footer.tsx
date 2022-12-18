@@ -2,10 +2,7 @@ import { useRouter } from "next/router";
 import React from "react";
 import * as locales from "../public/locales/all";
 
-function Footer() {
-	const router = useRouter();
-	const locale: "en" | "ar" = (router.locale as any) || "en";
-
+function Footer({ locale }: { locale: "en" | "ar" }) {
 	return (
 		<>
 			<footer className="fixed inset-x-0 bottom-0 bg-white py-4 container mx-auto max-w-lg">

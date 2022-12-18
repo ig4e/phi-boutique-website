@@ -1,18 +1,15 @@
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { categories, trendingProducts } from "../public/config";
+import { categories, trendingProducts } from "../../public/config";
 import { ChevronRightIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import * as locales from "../public/locales/all";
+import * as locales from "../../public/locales/all";
 import { useMemo } from "react";
 import { Navigation, Thumbs } from "swiper";
 import Head from "next/head";
 
-export default function Home() {
-	const router = useRouter();
-	const locale: "en" | "ar" = (router.locale as any) || "en";
-
+export default function Home({ locale }: { locale: "ar" | "en" }) {
 	return (
 		<div className="">
 			<Head>
@@ -65,12 +62,19 @@ export default function Home() {
 					prevEl: ".swiper-button-prev",
 				}}
 			>
-				<div className="swiper-button-prev !text-white"></div>
-				<div className="swiper-button-next !text-white"></div>
+				<div className="swiper-button-prev !text-white px-6 py-2"></div>
+				<div className="swiper-button-next !text-white px-6 py-2"></div>
+
 				{trendingProducts.map((product) => {
 					return (
 						<SwiperSlide key={product.title[locale]}>
-							<Link href={`/category/${product.categories[0]}/${encodeURIComponent(product.title.en)}`} locale={locale} className="w-full">
+							<Link
+								href={`/${locale}/category/${
+									product.categories[0]
+								}/${encodeURIComponent(product.title.en)}`}
+								locale={locale}
+								className="w-full"
+							>
 								<Image
 									src={product.pictures[0]}
 									layout={"fill"}
@@ -108,7 +112,7 @@ export default function Home() {
 					{categories.map(({ name, id }, index) => {
 						return (
 							<Link
-								href={`/category/${id}`}
+								href={`/${locale}/category/${id}`}
 								locale={locale}
 								className={`flex items-center justify-between py-4 ${
 									index !== categories.length - 1
