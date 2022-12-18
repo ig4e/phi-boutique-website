@@ -1,5 +1,10 @@
 import { ArrowLeftIcon, ArrowRightIcon } from "@heroicons/react/24/outline";
-import { GetServerSideProps, NextPage } from "next";
+import {
+	GetServerSideProps,
+	GetStaticPaths,
+	GetStaticProps,
+	NextPage,
+} from "next";
 import React from "react";
 import { categories, products } from "../../../../public/config";
 import { useRouter } from "next/router";
@@ -105,7 +110,7 @@ const CategoryList: NextPage<CategoryPageProps> = ({
 	);
 };
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
+export const getStaticProps: GetStaticProps = async (context) => {
 	const categoryId = context.params?.id! as string;
 	const category = categories.find((cat) => cat.id === categoryId)!;
 	return {
@@ -117,5 +122,23 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 		},
 	};
 };
+
+const getStaticPaths: GetStaticPaths = async () => {
+	const paths = [
+		...categories.map((category) => ({
+			params: { id: category.id, lang: "ar" },
+		})),
+		...categories.map((category) => ({
+			params: { id: category.id, lang: "en" },
+		})),
+	];
+
+	return {
+		paths,
+		fallback: false, // can also be true or 'blocking'
+	};
+};
+
+export { getStaticPaths };
 
 export default CategoryList;

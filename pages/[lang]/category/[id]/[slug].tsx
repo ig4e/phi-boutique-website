@@ -1,4 +1,4 @@
-import { GetServerSideProps, NextPage } from "next";
+import { GetServerSideProps, GetStaticProps, NextPage } from "next";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import React from "react";
@@ -145,7 +145,39 @@ const Product: NextPage<ProductPageProps> = ({ category, product, locale }) => {
 	);
 };
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
+export async function getStaticPaths() {
+	const paths = [
+		...products
+			.map((product) => {
+				return product.categories.map((category) => ({
+					params: {
+						lang: "ar",
+						id: category,
+						slug: encodeURIComponent(product.title.en),
+					},
+				}));
+			})
+			.reduce((total: any, current) => [...total, ...current], []),
+		...products
+			.map((product) => {
+				return product.categories.map((category) => ({
+					params: {
+						lang: "en",
+						id: category,
+						slug: encodeURIComponent(product.title.en),
+					},
+				}));
+			})
+			.reduce((total: any, current) => [...total, ...current], []),
+	];
+
+	return {
+		paths,
+		fallback: false, // can also be true or 'blocking'
+	};
+}
+
+export const getStaticProps: GetStaticProps = async (context) => {
 	const categoryId = context.params?.id! as string;
 	const productId = decodeURIComponent(context.params?.slug! as string);
 
