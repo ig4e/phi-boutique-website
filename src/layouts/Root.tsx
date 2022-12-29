@@ -9,7 +9,7 @@ function Root({ children }: { children?: any }) {
 	const location = useLocation();
 	const navigate = useNavigate();
 	const [locale, setLocale] = useState<"en" | "ar">(
-		location.pathname.match(/\/(en|ar)/)?.[1]! as any,
+		(location.pathname.match(/\/(en|ar)/)?.[1]! as any) || "en",
 	);
 
 	useEffect(() => {
@@ -23,6 +23,8 @@ function Root({ children }: { children?: any }) {
 
 		if (extractLocale) {
 			setLocale(extractLocale);
+		} else {
+			navigate("/en");
 		}
 
 		if (location.pathname === "/" || location.pathname === "") {
