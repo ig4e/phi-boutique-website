@@ -1,9 +1,10 @@
 import { ArrowLeftIcon, ArrowRightIcon } from "@heroicons/react/24/outline";
-import React, { useMemo } from "react";
+import React, { useEffect, useMemo } from "react";
 import { categories, products as configProducts } from "../../../config";
 import { Link } from "react-router-dom";
 import { Category, Product } from "../../../typings/interfaces";
 import { useParams } from "react-router-dom";
+import NotFoundError from "../../404";
 
 interface CategoryPageProps {
 	locale: "ar" | "en";
@@ -19,6 +20,14 @@ const CategoryList = ({ locale }: CategoryPageProps) => {
 
 		return { category, products };
 	}, [categoryId]);
+
+	useEffect(() => {
+		document.title = `Phi Boutique - فاى بوتيك | ${
+			locale === "ar"
+				? `صفحة ${category.name[locale]}`
+				: `${category.name[locale]} Page`
+		}`;
+	}, [locale]);
 
 	return (
 		<div className="">
@@ -78,12 +87,10 @@ const CategoryList = ({ locale }: CategoryPageProps) => {
 									<img
 										src={product.pictures[0]}
 										alt={product.title[locale]}
-										width={118}
-										height={118}
-										className="w-full h-full rounded-md object-cover"
+										className="w-full h-[118px] rounded-md object-cover"
 									></img>
 								</div>
-								<div className="flex flex-col  col-span-4 gap-2">
+								<div className="flex flex-col col-span-4 gap-2 justify-between">
 									<h1 className="font-semibold text-lg truncate">
 										{product.title[locale]}
 									</h1>

@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import React, { useEffect, useMemo } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Category, Product } from "../../../typings/interfaces";
 import * as locales from "../../../locales/all";
@@ -6,6 +6,7 @@ import { useParams, Link } from "react-router-dom";
 import { ArrowLeftIcon } from "@heroicons/react/24/outline";
 import { Navigation, Thumbs } from "swiper";
 import { categories, products as configProducts } from "../../../config";
+import NotFoundError from "../../404";
 
 const ProductPage = ({ locale }: { locale: "en" | "ar" }) => {
 	const { categoryId, productId } = useParams();
@@ -21,7 +22,15 @@ const ProductPage = ({ locale }: { locale: "en" | "ar" }) => {
 		return { category, product };
 	}, [categoryId]);
 
-	if (!product || !category) return <>NOOT FOUANND</>;
+	if (!product || !category) return <NotFoundError></NotFoundError>
+
+	useEffect(() => {
+		document.title = `Phi Boutique - فاى بوتيك | ${
+			locale === "ar"
+				? `صفحة ${product.title[locale]}`
+				: `${product.title[locale]} Page`
+		}`;
+	}, [locale, product]);
 
 	return (
 		<div>

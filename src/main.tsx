@@ -6,11 +6,19 @@ import "./index.css";
 import Home from "./pages";
 import CategoryList from "./pages/category/[id]";
 import Product from "./pages/category/[id]/[slug]";
+import NotFoundError from "./pages/404";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 
 const router = createBrowserRouter([
 	{
 		path: "/",
 		element: <Root></Root>,
+		errorElement: (
+			<div className="text-netural font-custom max-w-lg mx-auto">
+				<NotFoundError></NotFoundError>
+			</div>
+		),
 		children: [
 			{
 				path: "/en",

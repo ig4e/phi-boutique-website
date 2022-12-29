@@ -4,11 +4,15 @@ import { ChevronRightIcon } from "@heroicons/react/24/outline";
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import * as locales from "../locales/all";
-import { useMemo } from "react";
+import { useEffect, useMemo } from "react";
 import { Navigation, Thumbs } from "swiper";
 import "swiper/css/bundle";
 
 export default function Home({ locale }: { locale: "en" | "ar" }) {
+	useEffect(() => {
+		document.title = `Phi Boutique - فاى بوتيك | ${locale === "ar" ? "الصفحة الرئيسية" : "Main Page"}`;
+	}, [locale]);
+
 	return (
 		<div>
 			<head>
