@@ -6,11 +6,14 @@ import { useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
 function Root({ children }: { children?: any }) {
-	const [locale, setLocale] = useState<"en" | "ar">("en");
 	const location = useLocation();
 	const navigate = useNavigate();
+	const [locale, setLocale] = useState<"en" | "ar">(
+		location.pathname.match(/\/(en|ar)/)?.[1]! as any,
+	);
 
 	useEffect(() => {
+		if (!location.pathname) return;
 		const extractLocale = location.pathname.match(/\/(en|ar)/)?.[1] as
 			| "ar"
 			| "en"
@@ -20,7 +23,9 @@ function Root({ children }: { children?: any }) {
 
 		if (extractLocale) {
 			setLocale(extractLocale);
-		} else {
+		}
+
+		if (location.pathname === "/" || location.pathname === "") {
 			navigate("/en");
 		}
 	}, [location]);
