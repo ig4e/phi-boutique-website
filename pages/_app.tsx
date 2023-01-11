@@ -11,7 +11,7 @@ export default function App({ Component, pageProps }: AppProps) {
 
 	return (
 		<div
-			className="text-netural font-custom max-w-lg mx-auto bg-white"
+			className="text-netural font-custom max-w-lg mx-auto bg-white min-h-screen"
 			dir={locale === "ar" ? "rtl" : "ltr"}
 		>
 			<Navbar></Navbar>
