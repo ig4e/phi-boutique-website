@@ -77,7 +77,7 @@ const CategoryList: NextPage<CategoryPageProps> = ({ category, products }) => {
 									<Image
 										src={product.pictures[0]}
 										alt={product.title[locale]}
-										width={128}
+										width={148}
 										height={128}
 										className="w-full h-full rounded-md object-cover object-bottom"
 									></Image>
