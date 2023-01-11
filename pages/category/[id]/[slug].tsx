@@ -115,7 +115,7 @@ const Product: NextPage<ProductPageProps> = ({ category, product }) => {
 									src={picture}
 									layout={"fill"}
 									alt={product.title[locale]}
-									className="object-cover inset-0"
+									className="object-cover object-center inset-0"
 								></Image>
 							</div>
 						</SwiperSlide>

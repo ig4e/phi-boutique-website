@@ -63,7 +63,7 @@ const CategoryList: NextPage<CategoryPageProps> = ({ category, products }) => {
 			<div className="h-[56px] relative"></div>
 
 			<div className="container mx-auto">
-				<div className="flex flex-col gap-4 mt-4">
+				<div className="grid [grid-auto-rows:_1fr] gap-4 mt-4">
 					{products.map((product) => {
 						return (
 							<Link
@@ -71,15 +71,15 @@ const CategoryList: NextPage<CategoryPageProps> = ({ category, products }) => {
 									category.id
 								}/${encodeURIComponent(product.title.en)}`}
 								key={product.title.en}
-								className="grid grid-flow-row grid-cols-6 h-full gap-2.5"
+								className="grid grid-flow-row grid-cols-6 gap-2.5 h-32 max-h-32"
 							>
-								<div className="col-span-2 h-full">
+								<div className="col-span-2">
 									<Image
 										src={product.pictures[0]}
 										alt={product.title[locale]}
-										width={118}
-										height={118}
-										className="w-full h-full rounded-md object-cover"
+										width={128}
+										height={128}
+										className="w-full h-full rounded-md object-cover object-bottom"
 									></Image>
 								</div>
 								<div className="flex flex-col  col-span-4 gap-2">
